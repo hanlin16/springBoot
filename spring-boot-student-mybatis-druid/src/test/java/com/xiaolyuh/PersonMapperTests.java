@@ -29,7 +29,7 @@ public class PersonMapperTests {
 	@Before
 	public void testInsert() {
 		Person person = new Person();
-		person.setName("测试");
+		person.setName("Jim");
 		person.setAddress("address");
 		person.setAge(10);
 		personService.insert(person);
