@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaolyuh.domain.mapper.PersonMapper">
+
     <!-- 对这个语句开启二级缓存 -->
     <cache/>
+
     <resultMap id="BaseResultMap" type="com.xiaolyuh.domain.model.Person">
         <!--
           WARNING - @mbggenerated
@@ -13,6 +15,8 @@
         <result column="age" property="age" jdbcType="INTEGER"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
     </resultMap>
+
+    <!-- 统一定义查询字段 -->
     <sql id="Base_Column_List">
         <!--
           WARNING - @mbggenerated
@@ -30,6 +34,7 @@
         from person
         where id = #{id,jdbcType=BIGINT}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         <!--
           WARNING - @mbggenerated
@@ -102,6 +107,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
+
     <update id="updateByPrimaryKey" parameterType="com.xiaolyuh.domain.model.Person">
         <!--
           WARNING - @mbggenerated
@@ -130,5 +136,6 @@
 
     <update id="updateAge">
     UPDATE person SET age = age -1 WHERE id = #{id,jdbcType=BIGINT} AND age > 0
-  </update>
+   </update>
+
 </mapper>
