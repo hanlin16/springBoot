@@ -39,6 +39,7 @@ public class PersonServiceImpl implements PersonService {
     )
     @Override
     public Result semaphore(String arg) {
+        redisTemplate.opsForValue().set("semaphore","KING");
         redisTemplate.opsForValue().get("semaphore");
         Person person = new Person();
         person.setAge(18);
